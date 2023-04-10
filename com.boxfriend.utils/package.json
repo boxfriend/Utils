@@ -1,0 +1,10 @@
+{
+  "name": "com.boxfriend.utils",
+  "displayName": "Boxfriend's Utils",
+  "version": "1.0.0",
+  "unity": "2021.1",
+  "author": {
+    "name": "Boxfriend",
+    "url": "https://github.com/boxfriend"
+  }
+}
