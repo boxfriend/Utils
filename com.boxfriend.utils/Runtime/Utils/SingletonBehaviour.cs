@@ -29,7 +29,7 @@ namespace Boxfriend.Utils
 			}
 		}
 
-		protected virtual void Awake ()
+		protected virtual void __internalAwake ()
 		{
 			Instance = (T)this;
             
