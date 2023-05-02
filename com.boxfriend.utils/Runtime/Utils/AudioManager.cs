@@ -11,12 +11,7 @@ namespace Boxfriend.Utils
         [SerializeField] private AudioMixerGroup _audioMixer;
 
         private const string _inWaitingName = "AudioManager - Ready";
-        protected override void Awake()
-        {
-            base.Awake();
-
-            _sources = new ObjectPoolCircular<AudioSource>(Create, x => x.enabled = true, ReturnSource, DestroySource, 32);
-        }
+        private void Awake() => _sources = new ObjectPoolCircular<AudioSource>(Create, x => x.enabled = true, ReturnSource, DestroySource, 32);
 
         private AudioSource Create()
         {
