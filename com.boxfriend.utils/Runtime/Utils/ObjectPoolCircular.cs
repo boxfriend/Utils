@@ -81,6 +81,7 @@ namespace Boxfriend.Utils
 			}
 			
             _getObjectFromPool(poolObject);
+			_activeQueue.Enqueue(poolObject);
             return poolObject;
         }
 
