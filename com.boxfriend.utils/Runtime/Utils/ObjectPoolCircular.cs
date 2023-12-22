@@ -103,7 +103,19 @@ namespace Boxfriend.Utils
 			_inactiveQueue.Enqueue(item);
         }
 
-
+		/// <summary>
+		/// Returns all active items to the inactive queue
+		/// </summary>
+		public void ReturnAllToPool()
+		{
+			while(ActiveCount > 0)
+			{
+				var obj = _activeQueue.Dequeue();
+				_returnObjectToPool(obj);
+				_inactiveQueue.Enqueue(obj);
+			}
+		}
+		
 		/// <summary>
         /// Removes all items from the pool, calling <see langword="Action"/> <see cref="_destroyObject"/> on it if not null.
 		/// Does not call <see langword="Action"/> <see cref="_returnObjectToPool"/>.
