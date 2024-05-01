@@ -40,10 +40,10 @@ namespace Boxfriend.Utils
             _destroyObject = onDestroyObject;
 
             _maxSize = maxSize;
-            
+
             for (var i = 0; i < defaultSize; i++)
             {
-                _stack.Push(_objectCreator());
+                ToPool(_objectCreator());
             }
         }
 
