@@ -1,7 +1,7 @@
 using UnityEngine;
 namespace Boxfriend.Extensions
 {
-	static class Vector2Extensions
+	public static class Vector2Extensions
 	{
 		/// <summary>
 		/// Changes a Vector2 into a Vector3 where the V2 Y axis is represented on the V3 Z axis
