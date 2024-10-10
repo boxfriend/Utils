@@ -1,24 +1,27 @@
 using UnityEngine;
 
-public static class TransformExtensions
+namespace Boxfriend.Extensions
 {
-	public static T GetComponentInInactiveParent<T>(this Transform transform) where T : Component
+	public static class TransformExtensions
 	{
-		while(transform.parent != null)
+		public static T GetComponentInInactiveParent<T>(this Transform transform) where T : Component
 		{
-			transform = transform.parent;
-			if(transform.TryGetComponent(out T comp))
-				return comp;
+			while(transform.parent != null)
+			{
+				transform = transform.parent;
+				if(transform.TryGetComponent(out T comp))
+					return comp;
+			}
+			return null;
 		}
-		return null;
-	}
-	
-	public static void UnparentAll(this Transform transform)
-	{
-		foreach(Transform child in transform)
+		
+		public static void UnparentAll(this Transform transform)
 		{
-			child.UnparentAll();
+			foreach(Transform child in transform)
+			{
+				child.UnparentAll();
+			}
+			transform.SetParent(null);
 		}
-		transform.SetParent(null);
 	}
 }
